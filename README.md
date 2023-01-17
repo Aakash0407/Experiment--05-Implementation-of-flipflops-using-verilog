@@ -102,39 +102,116 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
+1.Using nand gates and wires construct sr flip flop.
 
+2.Repeat same steps to construct JK,D,T flipflops.
 
-### PROGRAM 
-/*
+3.Find Rtl logic and timing diagram for all flipflops.
+
+4.End the program.
+
+### PROGRAM 1:
+````
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Aakash P 
+RegisterNumber: 22005471
 
+module sr (q,qbar,s,r,clk);
+input s,r,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,clk,s);
+nand(nand2_out,clk,r);
+nand(q,nand1_out,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+````
 
+### RTL LOGIC FOR FLIP FLOPS 
 
-
-
-
-### RTL LOGIC FOR FLIPFLOPS 
-
-
-
-
-
-
-
-
+![Screenshot 2023-01-17 104615](https://user-images.githubusercontent.com/118799103/212815815-3cc6d637-d0dc-4a26-b609-803b5b7f4053.png)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+![Screenshot 2023-01-17 104725](https://user-images.githubusercontent.com/118799103/212815987-d7618f33-ec62-440c-a56a-124908e9c766.png)
 
+### PROGRAM 2:
+````
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Aakash P
+RegisterNumber: 22005471
 
+module jk(q,qbar,k,j,clk);
+input j,k,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,j,clk,qbar);
+nand(nand2_out,k,clk,q);
+nand(q,nand1_out,qbar,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+````
+### RTL LOGIC FOR FLIP FLOPS
 
+![Screenshot 2023-01-17 104942](https://user-images.githubusercontent.com/118799103/212816459-0abccc46-7d8b-4fbb-adec-b20bc0d8c803.png)
 
+### TIMING DIAGRAMS FOR FLIP FLOPS
 
+![Screenshot 2023-01-17 105020](https://user-images.githubusercontent.com/118799103/212816488-8643130a-5df1-43df-90cd-1142fe4e69e9.png)
 
+### PROGRAM 3:
+````
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Aakash P
+RegisterNumber: 22005471
+
+module d(q,qbar,d1,clk);
+input d1,clk;
+output q,qbar;
+wire n1;
+wire n2;
+not(x,d1);
+nand(n1,clk,d1);
+nand(n2,clk,x);
+nand(q,n2,qbar);
+nand(qbar,n1,q);
+endmodule 
+````
+### RTL LOGIC FOR FLIP FLOPS
+
+![1](https://user-images.githubusercontent.com/118799103/212816842-10bf443d-944a-4f80-b5fa-a7ff03fc0540.png)
+
+### TIMING DIAGRAMS FOR FLIP FLOP
+
+![2](https://user-images.githubusercontent.com/118799103/212816858-f833e80f-ea1a-4a8d-a232-0aaa7537f3d7.png)
+
+### PROGRAM 4:
+````
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Aakash P
+RegisterNumber: 22005471
+
+module tff(t,qbar,q,clk);
+input t,clk;
+output q,qbar;
+wire n1,n2;
+nand(n1,t,clk,qbar);
+nand(n2,clk,t,q);
+nand(q,n1,qbar);
+nand(qbar,n2,q);
+endmodule
+````
+### RTL LOGIC FOR FLIP FLOPS
+
+![Screenshot 2023-01-17 105652](https://user-images.githubusercontent.com/118799103/212817454-7508801b-6e16-446b-bd15-90c83457edbd.png)
+
+### TIMING DIAGRAMS FOR FLIP FLOPS
+
+![Screenshot 2023-01-17 105705](https://user-images.githubusercontent.com/118799103/212817474-63080ad9-f5cf-4d16-b5ff-d3c90c8f1994.png)
 
 ### RESULTS 
+
+Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
